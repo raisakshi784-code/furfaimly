@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFaimily</title>
+    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <h1>FurFaimily</h1>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#" onclick="showAbout()">About</a>
+                <a href="#" onclick="showContact()">Contact</a>
+                <button id="btn-signin-signup" onclick="handleSignIn()">SIGN IN / SIGN UP</button>
+            </div>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="main-content">
+            <h1>Bring Joy Home  Adopt, Love, Transform Lives!</h1>
+            <span>Discover the unmatched joy of adopting a furry companion. Give homeless pets a second chance and transform their lives while enriching your own</span>
+            <div class="button-container"> 
+                <button id="btn-getstarted" onclick="handleGetStarted()">Get Started</button>
+            </div>      
+        </div>
+        <div class="main-img">
+            <img src="../Img/Img/Gemini_Generated_Image_wk1m6bwk1m6bwk1m.jpeg" alt="main">
+        </div>
+    </div>
+   
+    <div id="about-section" style="display: none;">
+        <h1>About Pet Adoption</h1>
+        <p>Pet adoption is the process of taking responsibility for a pet that a previous owner has abandoned or given up. It is a wonderful way to provide a loving home to an animal in need and can bring immense joy to both the pet and the owner.</p>
+        <p>Adopting a pet can help reduce the number of homeless animals and is often a more affordable option than buying from a breeder or pet store.</p>
+        <button onclick="hideAbout()">Close</button>
+    </div>
+    
+    <div class="contact-email">
+        <div class="contact-details">
+            <h3>Anything you'd like to ask?</h3>
+            <p>We're happy to chat.</p>
+            <button id="send-email" onclick="window.location.href='mailto:askmeanything.com'">Send an Email</button>
+        </div>
+        <img src="../Img/Img/Gemini_Generated_Image_kn11o0kn11o0kn11.jpeg">
+    </div>
+    
+    <div class="footer1">
+        <br>
+        <div class="footer-social">
+            <a href="" target="_blank" aria-label="Facebook" style="margin: 0 1rem;">
+                <img src="../Img/Img/DALL·E 2024-11-17 08.23.08 - A simple and clean Facebook icon, designed as a blue square with a white lowercase 'f' in the center. The design is minimalistic, flat, and modern, su.webp" alt="Facebook-Icon" width="24" height="24">
+            </a>
+            <a href="" target="_blank" aria-label="X" style="margin: 0 1rem;">
+                <img src="../Img/Img/twitter.webp" alt="X" width="24" height="24">
+            </a>
+            <a href="" target="_blank" aria-label="Instagram" style="margin: 0 1rem;">
+                <img src="../Img/Img/1_Instagram_colored_svg_1-128.webp" alt="Instagram-Icon" width="24" height="24">
+            </a>
+            <a href="" target="_blank" aria-label="LinkedIn" style="margin: 0 1rem;">
+                <img src="../Img/Img/1_Linkedin_unofficial_colored_svg-128.webp" alt="LinkedIn-Icon" width="24" height="24">
+            </a>
+        </div>
+   
+        <div class="footer-contact">
+            <p>Email: <a href="mailto:support@furfamily.com">support@furfamily.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+91 1234567890</a></p>
+            <p>Address: 123 FurFamily Lane, Petvilla, India</p>
+        </div>
+
+        <div class="footer-copyright">
+            <p>Copyright &copy; 2024 | All rights reserved by FurFaimily</p>
+        </div>
+    </div>
+    <script>
+        let isSignedIn = false;
+
+        function showContact() {
+            const contactSection = document.querySelector('.contact-email');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('isSignedIn') === 'true') {
+                isSignedIn = true;
+                updateUIAfterSignIn();
+            }
+        };
+
+        function handleGetStarted() {
+            if (!isSignedIn) {
+                alert('Please sign in first!'); 
+            } else {
+                window.location.href = 'select.html'; 
+            }
+        }
+
+        function handleSignIn() {
+            if (!isSignedIn) {
+                window.location.href = 'sign.html'; 
+                localStorage.setItem('isSignedIn', 'true'); 
+            } else {
+                logOut();
+            }
+        }
+        
+        function logOut() {
+            isSignedIn = false;
+            localStorage.setItem('isSignedIn', 'false');
+            document.getElementById('btn-signin-signup').innerText = 'SIGN IN / SIGN UP';
+            alert('You have logged out.');
+        }
+
+        function updateUIAfterSignIn() {
+            document.getElementById('btn-signin-signup').innerText = 'LOG OUT';
+        }
+
+        function showAbout() {
+            document.getElementById('about-section').style.display = 'block';
+        }
+        
+        function hideAbout() {
+            document.getElementById('about-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

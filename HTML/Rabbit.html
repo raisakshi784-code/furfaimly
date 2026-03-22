@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFaimily - Rabbits</title>
+    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/Rabbit.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <h1>FurFaimily</h1>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <select id="user-type" onchange="navigateToPage(this.value)">
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="dog.html">Dog</option>
+                    <option value="cat.html">Cat</option>
+                    <option value="parrot.html">Parrot</option>
+                    <option value="hamster.html">Hamster</option>
+                    <option value="rabbit.html">Rabbit</option>
+                    <option value="turtle.html">Turtle</option>
+                </select>
+                <button id="btn-logout" onclick="logOut()">LOGOUT</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/American Fuzzy Lop.jpeg" alt="American Fuzzy Lop" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">AMERICAN FUZZY LOP</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>AMERICAN FUZZY LOP: Soft, adorable, and easy to handle!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Argente.webp" alt="Argente" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">ARGENTE</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>ARGENTE: Known for their silvery coat and calm demeanor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Balanc de Hotot.jpeg" alt="Blanc de Hotot" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">BLANC DE HOTOT</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>BLANC DE HOTOT: Gentle and known for their stunning eye markings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/English Spot.jpeg" alt="English Spot" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">ENGLISH SPOT</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>ENGLISH SPOT: Energetic and adored for their unique spot patterns!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Dwarf Papillon.jpeg" alt="Dwarf Papillon" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">DWARF PAPILLON</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>DWARF PAPILLON: Small, playful, and full of personality!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Lionhead.jpeg" alt="Lionhead" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">LIONHEAD</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>LIONHEAD: Distinctive mane and affectionate personality!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 FurFaimily. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function logOut() {
+            localStorage.setItem('isSignedIn', 'false');
+            alert('You have been logged out.');
+            window.location.href = 'index.html'; 
+        }
+
+        function navigateToPage(page) {
+            if (page) {
+                window.location.href = page; 
+            }
+        }
+    </script>
+</body>
+</html>

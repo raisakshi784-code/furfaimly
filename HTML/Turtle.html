@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFaimily - Turtles</title>
+    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/Turtle.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <h1>FurFaimily</h1>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <select id="user-type" onchange="navigateToPage(this.value)">
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="dog.html">Dog</option>
+                    <option value="cat.html">Cat</option>
+                    <option value="parrot.html">Parrot</option>
+                    <option value="hamster.html">Hamster</option>
+                    <option value="rabbit.html">Rabbit</option>
+                    <option value="turtle.html">Turtle</option>
+                </select>
+                <button id="btn-logout" onclick="logOut()">LOGOUT</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Red-Eared Slider.jpeg" alt="Red-Eared Slider" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">RED-EARED SLIDER</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>RED-EARED SLIDER: Known for their distinctive red stripes on their heads, Red-Eared Sliders are a popular breed for their friendly nature and easy care.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Mississippi Map Turtle.jpeg" alt="Mississippi Map Turtle" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">MISSISSIPPI MAP TURTLE</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>MISSISSIPPI MAP TURTLE: Known for their distinctive map-like patterns on their shells, Mississippi Map Turtles are a popular breed for their friendly nature and easy care.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/ASIAN BOX TURTLE.jpeg" alt="Asian Box Turtle" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">ASIAN-BOX-TURTLE</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>ASIAN BOX TURTLE: With their unique shell patterns and calm demeanor, Asian Box Turtles are a popular choice for turtle enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/EASTERN MUD TURTLE.jpeg" alt="Eastern Mud Turtle" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">EASTERN MUD TURTLE</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>EASTERN MUD TURTLE: Known for their distinctive shell patterns and calm demeanor, Eastern Mud Turtles are a popular choice for turtle enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/MALAYSIAN BOX TURTLE .jpeg" alt="Malaysian Box Turtle" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">MALAYSIAN BOX TURTLE</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>MALAYSIAN BOX TURTLE: Known for their unique shell patterns and calm demeanor, Malaysian Box Turtles are a popular choice for turtle enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Yellow-bellied Slider.jpeg" alt="Yellow-bellied Slider" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">YELLOW-BELLIED SLIDER</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>YELLOW-BELLIED SLIDER: With their vibrant yellow stripes and gentle nature, Yellow-bellied Sliders are a popular choice for turtle enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 FurFaimily. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function logOut() {
+            localStorage.setItem('isSignedIn', 'false'); 
+            alert('You have been logged out.');
+            window.location.href = 'index.html'; 
+        }
+
+        function navigateToPage(page) {
+            if (page) {
+                window.location.href = page; 
+            }
+        }
+    </script>
+</body>
+</html>

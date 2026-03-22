@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFaimily - Cat Selection</title>
+    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/Cat.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <h1>FurFaimily</h1>
+        </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <select id="user-type" onchange="navigateToPage(this.value)">
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="dog.html">Dog</option>
+                    <option value="cat.html">Cat</option>
+                    <option value="parrot.html">Parrot</option>
+                    <option value="hamster.html">Hamster</option>
+                    <option value="rabbit.html">Rabbit</option>
+                    <option value="turtle.html">Turtle</option>
+                </select>
+                <button id="btn-logout" onclick="logOut()">LOGOUT</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/persian.jpeg" alt="Persian" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">PERSIAN</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>PERSIAN: Elegant, calm, and affectionate cats!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/indian.jpeg" alt="Indian Billi" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">INDIAN BILLI</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>INDIAN BILLI: Independent, playful, and easy to care for!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/Rusty.jpeg" alt="Rusty Spotted Cat" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">RUSTY SPOTTED CAT</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>RUSTY SPOTTED CAT: Tiny, agile, and full of curiosity!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/bombay.jpeg" alt="Bombay" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">BOMBAY</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>BOMBAY: Sleek, friendly, and affectionate cats!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/birman.jpeg" alt="Birman" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">BIRMAN</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>BIRMAN: Gentle, loving, and beautiful cats!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../Img/Img/chartreux.jpeg" alt="Chartreux" class="card-img">
+                        <div class="card-content">
+                            <button class="card-button">CHARTREUX</button>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <p>CHARTREUX: Quiet, sweet, and excellent companions!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 FurFaimily. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function logOut() {
+            localStorage.setItem('isSignedIn', 'false'); 
+            alert('You have been logged out.');
+            window.location.href = 'index.html'; 
+        }
+
+        function navigateToPage(page) {
+            if (page) {
+                window.location.href = page; 
+            }
+        }
+    </script>
+</body>
+</html>

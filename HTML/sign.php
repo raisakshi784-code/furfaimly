@@ -1,3 +1,9 @@
+<?php
+require_once 'auth.php';
+
+// Generate Google Auth URL
+$authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,87 +11,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In / Sign Up</title>
     <link rel="stylesheet" href="../CSS/sign.css">
+    <style>
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: #757575;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px 16px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: background-color 0.2s, box-shadow 0.2s;
+            margin: 20px auto;
+            max-width: 300px;
+        }
+        .google-btn:hover {
+            background-color: #f8f8f8;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        .google-btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Sign In</h2>
-        <form id="signin-form">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit" class="btn">Sign In</button>
-        </form>
-        <div class="link">
-            Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>
-        </div>
+        <h2>Welcome to FurFaimily</h2>
+        <p>Adopt, Love, Transform Lives!</p>
+        
+        <?php if (isset($_GET['error'])): ?>
+            <p style="color: red; margin: 10px 0;">Authentication failed. Please try again.</p>
+        <?php endif; ?>
+
+        <a href="<?php echo htmlspecialchars($authUrl); ?>" class="google-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+            Continue with Google
+        </a>
+        <br>
+        <a href="index.php" style="color: #666; text-decoration: none; font-size: 14px;">Back to Home</a>
     </div>
-
-    <div class="container" style="display: none;" id="signup-container">
-        <h2>Sign Up</h2>
-        <form id="signup-form">
-            <div class="form-group">
-                <label for="signup-email">Email</label>
-                <input type="email" id="signup-email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" placeholder="Create a password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
-            </div>
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-        <div class="link">
-            Already have an account? <a href="#" onclick="toggleForm()">Sign In</a>
-        </div>
-    </div>
-
-    <script>
-        function toggleForm() {
-            const signinContainer = document.querySelector('.container');
-            const signupContainer = document.getElementById('signup-container');
-
-            signinContainer.style.display = signinContainer.style.display === 'none' ? 'block' : 'none';
-            signupContainer.style.display = signupContainer.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
-        <script>
-        function toggleForm() {
-            const signinContainer = document.querySelector('.container');
-            const signupContainer = document.getElementById('signup-container');
-
-            signinContainer.style.display = signinContainer.style.display === 'none' ? 'block' : 'none';
-            signupContainer.style.display = signupContainer.style.display === 'none' ? 'block' : 'none';
-        }
-
-        document.getElementById('signin-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            if (localStorage.getItem(email) === password) {
-                window.location.href = 'index.php';
-            } else {
-                alert('Invalid credentials. Please sign up.');
-            }
-        });
-
-        document.getElementById('signup-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const signupEmail = document.getElementById('signup-email').value;
-            const signupPassword = document.getElementById('signup-password').value;
-
-            localStorage.setItem(signupEmail, signupPassword);
-            alert('Sign up successful! You can now sign in.');
-            toggleForm();
-        });
-    </script>
 </body>
 </html>

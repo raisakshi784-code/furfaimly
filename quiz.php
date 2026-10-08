@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Pet Matchmaker - FurFaimily</title>
-    <link rel="stylesheet" href="../CSS/sign.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <style>
         .quiz-container { max-width: 600px; margin: 50px auto; padding: 20px; text-align: center; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .question { margin-bottom: 20px; text-align: left; }
         .question label { font-weight: bold; display: block; margin-bottom: 10px; }
         .options label { font-weight: normal; margin-right: 15px; }
     </style>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <div class="quiz-container">

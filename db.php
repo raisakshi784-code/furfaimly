@@ -1,5 +1,5 @@
 <?php
-$db_file = __DIR__ . "/../database.sqlite";
+$db_file = __DIR__ . "/database.sqlite";
 $dsn = "sqlite:" . $db_file;
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

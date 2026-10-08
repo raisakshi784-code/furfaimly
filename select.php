@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">
     <title>Pet Adoption</title>
-    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/select.css">
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="icon" href="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/select.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
         <div class="nav-left">
-            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <img src="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
             <h1>FurFaimily</h1>
         </div>
        
@@ -26,42 +26,42 @@
     <div class="container">
         <div class="card-container" style="display: flex; justify-content: space-around;">
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_xqfjilxqfjilxqfj.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_xqfjilxqfjilxqfj.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">DOG</h3>
                     <a href="dog.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_79f0bf79f0bf79f0.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_79f0bf79f0bf79f0.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">CAT</h3>
                     <a href="cat.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_kr9hzakr9hzakr9h.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_kr9hzakr9hzakr9h.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">PARROT</h3>
                     <a href="Parrot.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_bo2yxlbo2yxlbo2y.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_bo2yxlbo2yxlbo2y.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">RABBIT</h3>
                     <a href="Rabbit.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_9ov8co9ov8co9ov8.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_9ov8co9ov8co9ov8.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">TURTLE</h3>
                     <a href="Turtle.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
-                <img src="../Img/Img/Gemini_Generated_Image_q35lfq35lfq35lfq.jpeg" alt="Card Image" class="card-img">
+                <img src="Img/Img/Gemini_Generated_Image_q35lfq35lfq35lfq.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">HAMSTER</h3>
                     <a href="Hamster.php"><button class="card-button">MEET ME</button></a>

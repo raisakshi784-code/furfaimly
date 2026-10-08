@@ -32,9 +32,9 @@ $all_pets = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - FurFaimily</title>
-    <link rel="stylesheet" href="../CSS/sign.css">
-    <link rel="stylesheet" href="../CSS/premium.css">
-    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <link rel="stylesheet" href="CSS/sign.css">
+    <link rel="stylesheet" href="CSS/premium.css">
+    <link rel="stylesheet" href="CSS/dark-mode.css">
     <script src="js/dark-mode.js" defer></script>
     <style>
         .admin-container { max-width: 900px; margin: 40px auto; padding: 20px; }

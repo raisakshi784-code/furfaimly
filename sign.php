@@ -10,7 +10,7 @@ $authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In / Sign Up</title>
-    <link rel="stylesheet" href="../CSS/sign.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <style>
         .google-btn {
             display: flex;
@@ -42,7 +42,7 @@ $authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
             text-align: center;
         }
     </style>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <div class="container">

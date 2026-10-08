@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurFaimily</title>
-    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <link rel="icon" href="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/dark-mode.css">
     <script src="js/dark-mode.js" defer></script>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
         <div class="nav-left">
-            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <img src="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
             <h1>FurFaimily</h1>
         </div>
 
@@ -45,7 +45,7 @@
             </div>      
         </div>
         <div class="main-img">
-            <img src="../Img/Img/Gemini_Generated_Image_wk1m6bwk1m6bwk1m.jpeg" alt="main">
+            <img src="Img/Img/Gemini_Generated_Image_wk1m6bwk1m6bwk1m.jpeg" alt="main">
         </div>
     </div>
    
@@ -62,23 +62,23 @@
             <p>We're happy to chat.</p>
             <button id="send-email" onclick="window.location.href='mailto:askmeanything.com'">Send an Email</button>
         </div>
-        <img src="../Img/Img/Gemini_Generated_Image_kn11o0kn11o0kn11.jpeg">
+        <img src="Img/Img/Gemini_Generated_Image_kn11o0kn11o0kn11.jpeg">
     </div>
     
     <div class="footer1">
         <br>
         <div class="footer-social">
             <a href="" target="_blank" aria-label="Facebook" style="margin: 0 1rem;">
-                <img src="../Img/Img/DALL·E 2024-11-17 08.23.08 - A simple and clean Facebook icon, designed as a blue square with a white lowercase 'f' in the center. The design is minimalistic, flat, and modern, su.webp" alt="Facebook-Icon" width="24" height="24">
+                <img src="Img/Img/DALL·E 2024-11-17 08.23.08 - A simple and clean Facebook icon, designed as a blue square with a white lowercase 'f' in the center. The design is minimalistic, flat, and modern, su.webp" alt="Facebook-Icon" width="24" height="24">
             </a>
             <a href="" target="_blank" aria-label="X" style="margin: 0 1rem;">
-                <img src="../Img/Img/twitter.webp" alt="X" width="24" height="24">
+                <img src="Img/Img/twitter.webp" alt="X" width="24" height="24">
             </a>
             <a href="" target="_blank" aria-label="Instagram" style="margin: 0 1rem;">
-                <img src="../Img/Img/1_Instagram_colored_svg_1-128.webp" alt="Instagram-Icon" width="24" height="24">
+                <img src="Img/Img/1_Instagram_colored_svg_1-128.webp" alt="Instagram-Icon" width="24" height="24">
             </a>
             <a href="" target="_blank" aria-label="LinkedIn" style="margin: 0 1rem;">
-                <img src="../Img/Img/1_Linkedin_unofficial_colored_svg-128.webp" alt="LinkedIn-Icon" width="24" height="24">
+                <img src="Img/Img/1_Linkedin_unofficial_colored_svg-128.webp" alt="LinkedIn-Icon" width="24" height="24">
             </a>
         </div>
    

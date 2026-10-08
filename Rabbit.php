@@ -12,16 +12,16 @@ $pets = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurFaimily - Rabbit Selection</title>
-    <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Cat.css">
-    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <link rel="icon" href="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/Cat.css">
+    <link rel="stylesheet" href="CSS/dark-mode.css">
     <script src="js/dark-mode.js" defer></script>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
         <div class="nav-left">
-            <img src="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
+            <img src="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="nav-logo">
             <h1>FurFaimily</h1>
         </div>
         <div class="nav-right">
@@ -49,14 +49,14 @@ $pets = $stmt->fetchAll();
                 <div class="card" onclick="flipCard(this)">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <img src="Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
                             <div class="card-content">
                                 <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
                             </div>
                         </div>
                         <div class="card-back">
                             <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
                 </div>

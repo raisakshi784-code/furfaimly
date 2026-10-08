@@ -25,7 +25,7 @@ if (!$pet) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adopt <?php echo htmlspecialchars($pet['name']); ?></title>
-    <link rel="stylesheet" href="../CSS/sign.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <style>
         .success-box {
             max-width: 500px;
@@ -40,7 +40,7 @@ if (!$pet) {
         .pet-name { font-weight: bold; font-size: 24px; color: #333; margin: 15px 0; }
         .btn-home { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 4px; }
     </style>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <div class="success-box">

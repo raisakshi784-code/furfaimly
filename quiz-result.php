@@ -36,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Perfect Match!</title>
-    <link rel="stylesheet" href="../CSS/sign.css">
+    <link rel="stylesheet" href="CSS/sign.css">
     <style>
         .result-container { max-width: 600px; margin: 50px auto; padding: 20px; text-align: center; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .match-name { font-size: 28px; color: #ff6b6b; margin: 10px 0; }
         .btn-adopt { display: inline-block; padding: 12px 24px; background: #ff6b6b; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; }
     </style>
-    <link rel="stylesheet" href="../CSS/premium.css">
+    <link rel="stylesheet" href="CSS/premium.css">
 </head>
 <body>
     <div class="result-container">
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>Category: <?php echo htmlspecialchars($match['category']); ?></p>
             <p>Trait: <?php echo htmlspecialchars($match['trait_tag']); ?></p>
             
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $match['id']; ?>" alt="Scan to Adopt" style="margin-top:20px; border-radius:8px;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost/FURFAIMILY/adopt.php?id=<?php echo $match['id']; ?>" alt="Scan to Adopt" style="margin-top:20px; border-radius:8px;">
             <p style="font-size:14px; color:#666;">Scan QR code with your phone!</p>
             
             <a href="adopt.php?id=<?php echo $match['id']; ?>" class="btn-adopt">ADOPT NOW</a>

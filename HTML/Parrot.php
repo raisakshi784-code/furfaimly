@@ -1,11 +1,22 @@
+<?php
+session_start();
+require_once "db.php";
+$category = "Parrot";
+$stmt = $pdo->prepare("SELECT * FROM pets WHERE category=?");
+$stmt->execute([$category]);
+$pets = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurFaimily - Parrots</title>
+    <title>FurFaimily - Parrot Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Parrot.css">
+    <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,6 +26,7 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
@@ -32,89 +44,26 @@
 
     <div class="container">
         <div class="card-container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Hyacinth Macaw.jpeg" alt="Hyacinth Macaw" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">HYACINTH MACAW</button>
+            <?php if (count($pets) > 0): ?>
+                <?php foreach ($pets as $pet): ?>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <div class="card-content">
+                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
-                    <div class="card-back">
-                        <p>HYACINTH MACAW: Colorful, playful, and a great companion!</p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/African Grey Parrot.jpeg" alt="African Grey Parrot" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">AFRICAN GREY PARROT</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>AFRICAN GREY PARROT: Intelligent and known for mimicking human speech!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Umbrella Cockatoo.jpeg" alt="Umbrella Cockatoo" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">UMBRELLA COCKATOO</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>UMBRELLA COCKATOO: Affectionate and playful with their unique crest.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Sulphur-crested Cockatoo.jpeg" alt="Sulphur-crested Cockatoo" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">SULPHUR-CRESTED COCKATOO</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>SULPHUR-CRESTED COCKATOO: Playful, affectionate, and lively!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Blue-and-gold Macaw.jpeg" alt="Blue-and-Gold Macaw" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">BLUE-AND-GOLD MACAW</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>BLUE-AND-GOLD MACAW: Stunning colors and known for their intelligence!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Scarlet Macaw.jpeg" alt="Scarlet Macaw" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">SCARLET MACAW</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>SCARLET MACAW: Vibrant, social, and full of energy!</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; width:100%; font-size:18px;">No pets available right now.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -124,19 +73,13 @@
 
     <script>
         function flipCard(card) {
-            card.classList.toggle('flipped');
+            card.classList.toggle("flipped");
         }
-
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false'); 
-            alert('You have been logged out.');
-            window.location.href = 'index.php'; 
+            window.location.href = "logout.php"; 
         }
-
         function navigateToPage(page) {
-            if (page) {
-                window.location.href = page; 
-            }
+            if (page) { window.location.href = page; }
         }
     </script>
 </body>

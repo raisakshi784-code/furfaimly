@@ -1,0 +1,93 @@
+/* Premium UI Polish - Glassmorphism & Animations */
+:root {
+    --primary: #ff6b6b;
+    --primary-hover: #ff5252;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+    --nav-bg: rgba(30, 30, 30, 0.85);
+    --card-bg: rgba(40, 40, 40, 0.9);
+}
+
+body {
+    background: linear-gradient(-45deg, #f3e7e9, #e3eeff, #f3e7e9, #e3eeff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Inter', sans-serif;
+}
+
+body.dark {
+    background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1f1c2c, #1a1a1a);
+    background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glass Navbar */
+.nav-bar {
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Button enhancements */
+button, .btn, .btn-adopt {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: translateY(0);
+}
+
+button:hover, .btn:hover, .btn-adopt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Card Glassmorphism */
+.card-front, .card-back, .quiz-container, .result-container, .success-box, .admin-box {
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    transition: transform 0.4s ease;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Toast Notification */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}

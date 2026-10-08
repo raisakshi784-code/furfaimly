@@ -42,6 +42,7 @@ $authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
             text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <div class="container">

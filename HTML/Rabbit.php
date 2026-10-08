@@ -1,11 +1,22 @@
+<?php
+session_start();
+require_once "db.php";
+$category = "Rabbit";
+$stmt = $pdo->prepare("SELECT * FROM pets WHERE category=?");
+$stmt->execute([$category]);
+$pets = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurFaimily - Rabbits</title>
+    <title>FurFaimily - Rabbit Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Rabbit.css">
+    <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,6 +26,7 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
@@ -32,89 +44,26 @@
 
     <div class="container">
         <div class="card-container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/American Fuzzy Lop.jpeg" alt="American Fuzzy Lop" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">AMERICAN FUZZY LOP</button>
+            <?php if (count($pets) > 0): ?>
+                <?php foreach ($pets as $pet): ?>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <div class="card-content">
+                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
-                    <div class="card-back">
-                        <p>AMERICAN FUZZY LOP: Soft, adorable, and easy to handle!</p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Argente.webp" alt="Argente" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">ARGENTE</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>ARGENTE: Known for their silvery coat and calm demeanor.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Balanc de Hotot.jpeg" alt="Blanc de Hotot" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">BLANC DE HOTOT</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>BLANC DE HOTOT: Gentle and known for their stunning eye markings.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/English Spot.jpeg" alt="English Spot" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">ENGLISH SPOT</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>ENGLISH SPOT: Energetic and adored for their unique spot patterns!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Dwarf Papillon.jpeg" alt="Dwarf Papillon" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">DWARF PAPILLON</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>DWARF PAPILLON: Small, playful, and full of personality!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Lionhead.jpeg" alt="Lionhead" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">LIONHEAD</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>LIONHEAD: Distinctive mane and affectionate personality!</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; width:100%; font-size:18px;">No pets available right now.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -124,19 +73,13 @@
 
     <script>
         function flipCard(card) {
-            card.classList.toggle('flipped');
+            card.classList.toggle("flipped");
         }
-
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false');
-            alert('You have been logged out.');
-            window.location.href = 'index.php'; 
+            window.location.href = "logout.php"; 
         }
-
         function navigateToPage(page) {
-            if (page) {
-                window.location.href = page; 
-            }
+            if (page) { window.location.href = page; }
         }
     </script>
 </body>

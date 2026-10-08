@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="../CSS/dark-mode.css">
     <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -24,6 +25,7 @@
                 <a href="#" onclick="showAbout()">About</a>
                 <a href="#" onclick="showContact()">Contact</a>
                 <?php if (isset($_SESSION['user'])): ?>
+                    <a href="admin.php" style="color:var(--primary); font-weight:bold;">Admin Panel</a>
                     <button id="btn-signin-signup" style="display:flex; align-items:center; gap:8px;" onclick="logOut()">
                         <img src="<?php echo htmlspecialchars($_SESSION['user']['avatar']); ?>" alt="avatar" style="width:24px; height:24px; border-radius:50%;">
                         LOG OUT

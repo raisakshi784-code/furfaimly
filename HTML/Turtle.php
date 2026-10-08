@@ -1,11 +1,22 @@
+<?php
+session_start();
+require_once "db.php";
+$category = "Turtle";
+$stmt = $pdo->prepare("SELECT * FROM pets WHERE category=?");
+$stmt->execute([$category]);
+$pets = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurFaimily - Turtles</title>
+    <title>FurFaimily - Turtle Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Turtle.css">
+    <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,6 +26,7 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
@@ -32,89 +44,26 @@
 
     <div class="container">
         <div class="card-container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Red-Eared Slider.jpeg" alt="Red-Eared Slider" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">RED-EARED SLIDER</button>
+            <?php if (count($pets) > 0): ?>
+                <?php foreach ($pets as $pet): ?>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <div class="card-content">
+                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
-                    <div class="card-back">
-                        <p>RED-EARED SLIDER: Known for their distinctive red stripes on their heads, Red-Eared Sliders are a popular breed for their friendly nature and easy care.</p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Mississippi Map Turtle.jpeg" alt="Mississippi Map Turtle" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">MISSISSIPPI MAP TURTLE</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>MISSISSIPPI MAP TURTLE: Known for their distinctive map-like patterns on their shells, Mississippi Map Turtles are a popular breed for their friendly nature and easy care.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/ASIAN BOX TURTLE.jpeg" alt="Asian Box Turtle" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">ASIAN-BOX-TURTLE</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>ASIAN BOX TURTLE: With their unique shell patterns and calm demeanor, Asian Box Turtles are a popular choice for turtle enthusiasts.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/EASTERN MUD TURTLE.jpeg" alt="Eastern Mud Turtle" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">EASTERN MUD TURTLE</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>EASTERN MUD TURTLE: Known for their distinctive shell patterns and calm demeanor, Eastern Mud Turtles are a popular choice for turtle enthusiasts.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/MALAYSIAN BOX TURTLE .jpeg" alt="Malaysian Box Turtle" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">MALAYSIAN BOX TURTLE</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>MALAYSIAN BOX TURTLE: Known for their unique shell patterns and calm demeanor, Malaysian Box Turtles are a popular choice for turtle enthusiasts.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Yellow-bellied Slider.jpeg" alt="Yellow-bellied Slider" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">YELLOW-BELLIED SLIDER</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>YELLOW-BELLIED SLIDER: With their vibrant yellow stripes and gentle nature, Yellow-bellied Sliders are a popular choice for turtle enthusiasts.</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; width:100%; font-size:18px;">No pets available right now.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -124,19 +73,13 @@
 
     <script>
         function flipCard(card) {
-            card.classList.toggle('flipped');
+            card.classList.toggle("flipped");
         }
-
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false'); 
-            alert('You have been logged out.');
-            window.location.href = 'index.php'; 
+            window.location.href = "logout.php"; 
         }
-
         function navigateToPage(page) {
-            if (page) {
-                window.location.href = page; 
-            }
+            if (page) { window.location.href = page; }
         }
     </script>
 </body>

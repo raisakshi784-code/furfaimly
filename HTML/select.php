@@ -7,6 +7,7 @@
     <title>Pet Adoption</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
     <link rel="stylesheet" href="../CSS/select.css">
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">

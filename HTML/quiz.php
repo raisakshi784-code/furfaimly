@@ -12,6 +12,7 @@
         .question label { font-weight: bold; display: block; margin-bottom: 10px; }
         .options label { font-weight: normal; margin-right: 15px; }
     </style>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <div class="quiz-container">

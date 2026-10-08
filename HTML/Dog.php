@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once "db.php";
+$category = "Dog";
+$stmt = $pdo->prepare("SELECT * FROM pets WHERE category=?");
+$stmt->execute([$category]);
+$pets = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurFaimily - Dog Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Dog.css">
+    <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,6 +26,7 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
@@ -32,89 +44,26 @@
 
     <div class="container">
         <div class="card-container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Beagle.jpeg" alt="Beagle" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">BEAGLE</button>
+            <?php if (count($pets) > 0): ?>
+                <?php foreach ($pets as $pet): ?>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <div class="card-content">
+                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
-                    <div class="card-back">
-                        <p>BEAGLE: Loyal, friendly, and great for families!</p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Labrador Retriever.jpeg" alt="Labrador Retriever" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">LABRADOR RETRIEVER</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>LABRADOR: Intelligent, loving, and great companions!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/pug.jpeg" alt="Pug" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">PUG</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>PUG: Adorable, loving, and full of personality!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Rajapalayam.jpeg" alt="Rajapalayam" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">RAJAPALAYAM</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>RAJAPALAYAM: Brave, loyal, and a great guardian!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Dalmatian.jpeg" alt="Dalmatian" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">DALMATIAN</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>DALMATIAN: Energetic, playful, and great for active families!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Doberman.jpeg" alt="Doberman" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">DOBERMAN</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>DOBERMAN: Intelligent, alert, and loyal companions!</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; width:100%; font-size:18px;">No pets available right now.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -124,19 +73,13 @@
 
     <script>
         function flipCard(card) {
-            card.classList.toggle('flipped');
+            card.classList.toggle("flipped");
         }
-
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false'); 
-            alert('You have been logged out.');
-            window.location.href = 'index.php'; 
+            window.location.href = "logout.php"; 
         }
-
         function navigateToPage(page) {
-            if (page) {
-                window.location.href = page; 
-            }
+            if (page) { window.location.href = page; }
         }
     </script>
 </body>

@@ -15,6 +15,7 @@ $cats = $stmt->fetchAll();
     <link rel="stylesheet" href="../CSS/Cat.css">
     <link rel="stylesheet" href="../CSS/dark-mode.css">
     <script src="js/dark-mode.js" defer></script>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <nav class="nav-bar">

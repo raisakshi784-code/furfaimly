@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .match-name { font-size: 28px; color: #ff6b6b; margin: 10px 0; }
         .btn-adopt { display: inline-block; padding: 12px 24px; background: #ff6b6b; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; }
     </style>
+    <link rel="stylesheet" href="../CSS/premium.css">
 </head>
 <body>
     <div class="result-container">

@@ -49,14 +49,20 @@ $pets = $stmt->fetchAll();
                 <div class="card" onclick="flipCard(this)">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img">
+                            <img src="<?php echo htmlspecialchars(!empty($pet['image']) ? $pet['image'] : 'Img/Img/Golden Hamster .jpeg'); ?>" alt="<?php echo htmlspecialchars($pet["name"]); ?>" class="card-img" style="object-fit:cover;">
                             <div class="card-content">
-                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($pet["name"])); ?></button>
+                                <h3 style="font-size:17px; margin-bottom:4px;"><?php echo htmlspecialchars($pet["name"]); ?></h3>
+                                <p style="font-size:12px; color:#666; margin-bottom:10px;"><?php echo htmlspecialchars($pet["breed"] ?? 'Hamster'); ?> &bull; <?php echo htmlspecialchars($pet["city"] ?? 'Delhi'); ?></p>
+                                <button class="card-button" style="padding:8px 14px; font-size:13px;">CLICK TO VIEW</button>
                             </div>
                         </div>
-                        <div class="card-back">
-                            <p><?php echo htmlspecialchars($pet["name"]); ?>: <?php echo htmlspecialchars($pet["trait_tag"] ?? "A wonderful companion!"); ?></p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
+                        <div class="card-back" style="padding:15px;">
+                            <h3 style="font-size:18px; margin-bottom:4px;"><?php echo htmlspecialchars($pet["name"]); ?></h3>
+                            <p style="font-size:12px; opacity:0.9;"><?php echo htmlspecialchars($pet["breed"] ?? 'Hamster'); ?> (<?php echo htmlspecialchars($pet["age"] ?? '6M'); ?>)</p>
+                            <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:10px; font-size:11px; margin: 4px 0;">✓ Vet Checked & Healthy</span>
+                            <p style="font-size:12px; margin:6px 0;"><?php echo htmlspecialchars($pet["trait_tag"] ?? "Gentle & Quiet"); ?></p>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=http://localhost:8000/adopt.php?id=<?php echo $pet["id"]; ?>" alt="QR Code" style="border-radius:4px; background:white; padding:2px;">
+                            <a href="adopt.php?id=<?php echo $pet["id"]; ?>" onclick="event.stopPropagation();" style="display:inline-block; margin-top:8px; padding:6px 14px; background:#ff6b6b; color:#fff; border-radius:6px; text-decoration:none; font-weight:bold; font-size:12px;">Adopt Me</a>
                         </div>
                     </div>
                 </div>

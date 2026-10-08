@@ -21,16 +21,18 @@
         <div class="nav-right">
             <div class="nav-links">
                 <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
-                <a href="#">Home</a>
-                <a href="#" onclick="showAbout()">About</a>
-                <a href="#" onclick="showContact()">Contact</a>
+                <a href="index.php">Home</a>
+                <a href="select.php">Explore Pets</a>
+                <a href="my-applications.php">My Applications</a>
+                <a href="lost-found.php">Lost & Found</a>
+                <a href="donate.php">Sponsor Medical</a>
                 <?php if (isset($_SESSION['user'])): ?>
                     <button id="btn-signin-signup" style="display:flex; align-items:center; gap:8px;" onclick="logOut()">
                         <img src="<?php echo htmlspecialchars($_SESSION['user']['avatar']); ?>" alt="avatar" style="width:24px; height:24px; border-radius:50%;">
                         LOG OUT
                     </button>
                 <?php else: ?>
-                    <button id="btn-signin-signup" onclick="handleSignIn()">SIGN IN / SIGN UP</button>
+                    <button id="btn-signin-signup" onclick="handleSignIn()">SIGN IN</button>
                 <?php endif; ?>
             </div>
         </div>
@@ -87,9 +89,17 @@
             <p>Address: 123 FurFamily Lane, Petvilla, India</p>
         </div>
 
-        <div class="footer-copyright" style="display:flex; justify-content:space-between; padding: 0 40px;">
-            <p>Copyright &copy; 2024 | All rights reserved by FurFaimily</p>
-            <a href="admin.php" style="color: #666; font-size:12px; text-decoration:none;">Admin Login</a>
+        <div class="footer-links-row" style="display:flex; justify-content:center; gap:24px; margin: 15px 0; font-size:13px;">
+            <a href="select.php" style="color:inherit; text-decoration:none;">Explore Pets</a>
+            <a href="my-applications.php" style="color:inherit; text-decoration:none;">Track Applications</a>
+            <a href="lost-found.php" style="color:inherit; text-decoration:none;">Lost & Found Alerts</a>
+            <a href="donate.php" style="color:inherit; text-decoration:none;">Sponsor Medical Care</a>
+            <a href="admin.php" style="color:inherit; text-decoration:none;">Shelter Admin</a>
+        </div>
+
+        <div class="footer-copyright" style="display:flex; justify-content:space-between; padding: 0 40px; margin-top:10px;">
+            <p>Copyright &copy; 2026 | All rights reserved by FurFaimily</p>
+            <a href="admin.php" style="color: #888; font-size:12px; text-decoration:none;">Shelter Operations Portal &rarr;</a>
         </div>
     </div>
     <script>

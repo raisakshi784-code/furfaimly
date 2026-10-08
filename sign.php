@@ -1,7 +1,5 @@
 <?php
 require_once 'auth.php';
-
-// Generate Google Auth URL
 $authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
 ?>
 <!DOCTYPE html>
@@ -9,56 +7,52 @@ $authUrl = $client ? $client->createAuthUrl() : 'callback.php?mock_login=1';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In / Sign Up</title>
+    <title>Sign In - FurFaimily</title>
     <link rel="stylesheet" href="CSS/sign.css">
-    <style>
-        .google-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-            color: #757575;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px 16px;
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: background-color 0.2s, box-shadow 0.2s;
-            margin: 20px auto;
-            max-width: 300px;
-        }
-        .google-btn:hover {
-            background-color: #f8f8f8;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        }
-        .google-btn img {
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
-        }
-        .container {
-            text-align: center;
-        }
-    </style>
     <link rel="stylesheet" href="CSS/premium.css">
+    <link rel="stylesheet" href="CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome to FurFaimily</h2>
-        <p>Adopt, Love, Transform Lives!</p>
-        
-        <?php if (isset($_GET['error'])): ?>
-            <p style="color: red; margin: 10px 0;">Authentication failed. Please try again.</p>
-        <?php endif; ?>
+    <div class="split-container">
+        <!-- Left Side Image -->
+        <div class="split-left">
+            <div class="overlay-text">
+                <h1>Adopt, Love, Transform Lives.</h1>
+                <p>Join thousands of families giving pets a second chance.</p>
+            </div>
+        </div>
 
-        <a href="<?php echo htmlspecialchars($authUrl); ?>" class="google-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
-            Continue with Google
-        </a>
-        <br>
-        <a href="index.php" style="color: #666; text-decoration: none; font-size: 14px;">Back to Home</a>
+        <!-- Right Side Login -->
+        <div class="split-right">
+            <button id="dark-mode-toggle" class="dark-toggle absolute-toggle">🌙</button>
+            
+            <div class="login-box">
+                <div class="login-header">
+                    <img src="Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" alt="FurFaimily Logo" class="login-logo">
+                    <h2>Welcome Back</h2>
+                    <p>Please sign in to continue to FurFaimily.</p>
+                </div>
+                
+                <?php if (isset($_GET['error'])): ?>
+                    <div class="error-msg">Authentication failed. Please try again.</div>
+                <?php endif; ?>
+
+                <!-- Official Google Sign-In Button Styling -->
+                <a href="<?php echo htmlspecialchars($authUrl); ?>" class="google-btn-official">
+                    <div class="google-icon-wrapper">
+                        <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p class="btn-text"><b>Sign in with Google</b></p>
+                </a>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <a href="index.php" class="back-link">← Back to Homepage</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

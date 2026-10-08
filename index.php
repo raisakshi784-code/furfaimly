@@ -25,7 +25,6 @@
                 <a href="#" onclick="showAbout()">About</a>
                 <a href="#" onclick="showContact()">Contact</a>
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a href="admin.php" style="color:var(--primary); font-weight:bold;">Admin Panel</a>
                     <button id="btn-signin-signup" style="display:flex; align-items:center; gap:8px;" onclick="logOut()">
                         <img src="<?php echo htmlspecialchars($_SESSION['user']['avatar']); ?>" alt="avatar" style="width:24px; height:24px; border-radius:50%;">
                         LOG OUT
@@ -88,8 +87,9 @@
             <p>Address: 123 FurFamily Lane, Petvilla, India</p>
         </div>
 
-        <div class="footer-copyright">
+        <div class="footer-copyright" style="display:flex; justify-content:space-between; padding: 0 40px;">
             <p>Copyright &copy; 2024 | All rights reserved by FurFaimily</p>
+            <a href="admin.php" style="color: #666; font-size:12px; text-decoration:none;">Admin Login</a>
         </div>
     </div>
     <script>

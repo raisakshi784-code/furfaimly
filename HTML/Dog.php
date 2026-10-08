@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurFaimily - Cat Selection</title>
+    <title>FurFaimily - Dog Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/Dog.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,15 +15,15 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
-                    <option value="dog.html">Dog</option>
-                    <option value="cat.html">Cat</option>
-                    <option value="parrot.html">Parrot</option>
-                    <option value="hamster.html">Hamster</option>
-                    <option value="rabbit.html">Rabbit</option>
-                    <option value="turtle.html">Turtle</option>
+                    <option value="dog.php">Dog</option>
+                    <option value="cat.php">Cat</option>
+                    <option value="parrot.php">Parrot</option>
+                    <option value="hamster.php">Hamster</option>
+                    <option value="rabbit.php">Rabbit</option>
+                    <option value="turtle.php">Turtle</option>
                 </select>
                 <button id="btn-logout" onclick="logOut()">LOGOUT</button>
             </div>
@@ -35,13 +35,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/persian.jpeg" alt="Persian" class="card-img">
+                        <img src="../Img/Img/Beagle.jpeg" alt="Beagle" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">PERSIAN</button>
+                            <button class="card-button">BEAGLE</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>PERSIAN: Elegant, calm, and affectionate cats!</p>
+                        <p>BEAGLE: Loyal, friendly, and great for families!</p>
                     </div>
                 </div>
             </div>
@@ -49,13 +49,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/indian.jpeg" alt="Indian Billi" class="card-img">
+                        <img src="../Img/Img/Labrador Retriever.jpeg" alt="Labrador Retriever" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">INDIAN BILLI</button>
+                            <button class="card-button">LABRADOR RETRIEVER</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>INDIAN BILLI: Independent, playful, and easy to care for!</p>
+                        <p>LABRADOR: Intelligent, loving, and great companions!</p>
                     </div>
                 </div>
             </div>
@@ -63,13 +63,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/Rusty.jpeg" alt="Rusty Spotted Cat" class="card-img">
+                        <img src="../Img/Img/pug.jpeg" alt="Pug" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">RUSTY SPOTTED CAT</button>
+                            <button class="card-button">PUG</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>RUSTY SPOTTED CAT: Tiny, agile, and full of curiosity!</p>
+                        <p>PUG: Adorable, loving, and full of personality!</p>
                     </div>
                 </div>
             </div>
@@ -77,13 +77,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/bombay.jpeg" alt="Bombay" class="card-img">
+                        <img src="../Img/Img/Rajapalayam.jpeg" alt="Rajapalayam" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">BOMBAY</button>
+                            <button class="card-button">RAJAPALAYAM</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>BOMBAY: Sleek, friendly, and affectionate cats!</p>
+                        <p>RAJAPALAYAM: Brave, loyal, and a great guardian!</p>
                     </div>
                 </div>
             </div>
@@ -91,13 +91,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/birman.jpeg" alt="Birman" class="card-img">
+                        <img src="../Img/Img/Dalmatian.jpeg" alt="Dalmatian" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">BIRMAN</button>
+                            <button class="card-button">DALMATIAN</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>BIRMAN: Gentle, loving, and beautiful cats!</p>
+                        <p>DALMATIAN: Energetic, playful, and great for active families!</p>
                     </div>
                 </div>
             </div>
@@ -105,13 +105,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/chartreux.jpeg" alt="Chartreux" class="card-img">
+                        <img src="../Img/Img/Doberman.jpeg" alt="Doberman" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">CHARTREUX</button>
+                            <button class="card-button">DOBERMAN</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>CHARTREUX: Quiet, sweet, and excellent companions!</p>
+                        <p>DOBERMAN: Intelligent, alert, and loyal companions!</p>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
         function logOut() {
             localStorage.setItem('isSignedIn', 'false'); 
             alert('You have been logged out.');
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.php'; 
         }
 
         function navigateToPage(page) {

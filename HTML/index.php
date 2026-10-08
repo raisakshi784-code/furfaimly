@@ -98,13 +98,13 @@
             if (!isSignedIn) {
                 alert('Please sign in first!'); 
             } else {
-                window.location.href = 'select.html'; 
+                window.location.href = 'select.php'; 
             }
         }
 
         function handleSignIn() {
             if (!isSignedIn) {
-                window.location.href = 'sign.html'; 
+                window.location.href = 'sign.php'; 
                 localStorage.setItem('isSignedIn', 'true'); 
             } else {
                 logOut();

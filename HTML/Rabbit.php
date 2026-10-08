@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurFaimily - Turtles</title>
+    <title>FurFaimily - Rabbits</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/Turtle.css">
+    <link rel="stylesheet" href="../CSS/Rabbit.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -15,15 +15,15 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
-                    <option value="dog.html">Dog</option>
-                    <option value="cat.html">Cat</option>
-                    <option value="parrot.html">Parrot</option>
-                    <option value="hamster.html">Hamster</option>
-                    <option value="rabbit.html">Rabbit</option>
-                    <option value="turtle.html">Turtle</option>
+                    <option value="dog.php">Dog</option>
+                    <option value="cat.php">Cat</option>
+                    <option value="parrot.php">Parrot</option>
+                    <option value="hamster.php">Hamster</option>
+                    <option value="rabbit.php">Rabbit</option>
+                    <option value="turtle.php">Turtle</option>
                 </select>
                 <button id="btn-logout" onclick="logOut()">LOGOUT</button>
             </div>
@@ -35,13 +35,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/Red-Eared Slider.jpeg" alt="Red-Eared Slider" class="card-img">
+                        <img src="../Img/Img/American Fuzzy Lop.jpeg" alt="American Fuzzy Lop" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">RED-EARED SLIDER</button>
+                            <button class="card-button">AMERICAN FUZZY LOP</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>RED-EARED SLIDER: Known for their distinctive red stripes on their heads, Red-Eared Sliders are a popular breed for their friendly nature and easy care.</p>
+                        <p>AMERICAN FUZZY LOP: Soft, adorable, and easy to handle!</p>
                     </div>
                 </div>
             </div>
@@ -49,13 +49,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/Mississippi Map Turtle.jpeg" alt="Mississippi Map Turtle" class="card-img">
+                        <img src="../Img/Img/Argente.webp" alt="Argente" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">MISSISSIPPI MAP TURTLE</button>
+                            <button class="card-button">ARGENTE</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>MISSISSIPPI MAP TURTLE: Known for their distinctive map-like patterns on their shells, Mississippi Map Turtles are a popular breed for their friendly nature and easy care.</p>
+                        <p>ARGENTE: Known for their silvery coat and calm demeanor.</p>
                     </div>
                 </div>
             </div>
@@ -63,13 +63,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/ASIAN BOX TURTLE.jpeg" alt="Asian Box Turtle" class="card-img">
+                        <img src="../Img/Img/Balanc de Hotot.jpeg" alt="Blanc de Hotot" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">ASIAN-BOX-TURTLE</button>
+                            <button class="card-button">BLANC DE HOTOT</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>ASIAN BOX TURTLE: With their unique shell patterns and calm demeanor, Asian Box Turtles are a popular choice for turtle enthusiasts.</p>
+                        <p>BLANC DE HOTOT: Gentle and known for their stunning eye markings.</p>
                     </div>
                 </div>
             </div>
@@ -77,13 +77,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/EASTERN MUD TURTLE.jpeg" alt="Eastern Mud Turtle" class="card-img">
+                        <img src="../Img/Img/English Spot.jpeg" alt="English Spot" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">EASTERN MUD TURTLE</button>
+                            <button class="card-button">ENGLISH SPOT</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>EASTERN MUD TURTLE: Known for their distinctive shell patterns and calm demeanor, Eastern Mud Turtles are a popular choice for turtle enthusiasts.</p>
+                        <p>ENGLISH SPOT: Energetic and adored for their unique spot patterns!</p>
                     </div>
                 </div>
             </div>
@@ -91,13 +91,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/MALAYSIAN BOX TURTLE .jpeg" alt="Malaysian Box Turtle" class="card-img">
+                        <img src="../Img/Img/Dwarf Papillon.jpeg" alt="Dwarf Papillon" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">MALAYSIAN BOX TURTLE</button>
+                            <button class="card-button">DWARF PAPILLON</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>MALAYSIAN BOX TURTLE: Known for their unique shell patterns and calm demeanor, Malaysian Box Turtles are a popular choice for turtle enthusiasts.</p>
+                        <p>DWARF PAPILLON: Small, playful, and full of personality!</p>
                     </div>
                 </div>
             </div>
@@ -105,13 +105,13 @@
             <div class="card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="../Img/Img/Yellow-bellied Slider.jpeg" alt="Yellow-bellied Slider" class="card-img">
+                        <img src="../Img/Img/Lionhead.jpeg" alt="Lionhead" class="card-img">
                         <div class="card-content">
-                            <button class="card-button">YELLOW-BELLIED SLIDER</button>
+                            <button class="card-button">LIONHEAD</button>
                         </div>
                     </div>
                     <div class="card-back">
-                        <p>YELLOW-BELLIED SLIDER: With their vibrant yellow stripes and gentle nature, Yellow-bellied Sliders are a popular choice for turtle enthusiasts.</p>
+                        <p>LIONHEAD: Distinctive mane and affectionate personality!</p>
                     </div>
                 </div>
             </div>
@@ -128,9 +128,9 @@
         }
 
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false'); 
+            localStorage.setItem('isSignedIn', 'false');
             alert('You have been logged out.');
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.php'; 
         }
 
         function navigateToPage(page) {

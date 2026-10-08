@@ -15,15 +15,15 @@
         </div>
         <div class="nav-right">
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>
-                    <option value="dog.html">Dog</option>
-                    <option value="cat.html">Cat</option>
-                    <option value="parrot.html">Parrot</option>
-                    <option value="hamster.html">Hamster</option>
-                    <option value="rabbit.html">Rabbit</option>
-                    <option value="turtle.html">Turtle</option>
+                    <option value="dog.php">Dog</option>
+                    <option value="cat.php">Cat</option>
+                    <option value="parrot.php">Parrot</option>
+                    <option value="hamster.php">Hamster</option>
+                    <option value="rabbit.php">Rabbit</option>
+                    <option value="turtle.php">Turtle</option>
                 </select>
                 <button id="btn-logout" onclick="logOut()">LOGOUT</button>
             </div>
@@ -130,7 +130,7 @@
         function logOut() {
             localStorage.setItem('isSignedIn', 'false'); 
             alert('You have been logged out.');
-            window.location.href = 'index.html'; 
+            window.location.href = 'index.php'; 
         }
 
         function navigateToPage(page) {

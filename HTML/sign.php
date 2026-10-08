@@ -71,7 +71,7 @@
             const password = document.getElementById('password').value;
 
             if (localStorage.getItem(email) === password) {
-                window.location.href = 'index.html';
+                window.location.href = 'index.php';
             } else {
                 alert('Invalid credentials. Please sign up.');
             }

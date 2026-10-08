@@ -17,7 +17,7 @@
        
         <div class="nav-right">
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <button id="btn-logout" onclick="logOut()">LOGOUT</button>
             </div>
         </div>
@@ -28,42 +28,42 @@
                 <img src="../Img/Img/Gemini_Generated_Image_xqfjilxqfjilxqfj.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">DOG</h3>
-                    <a href="dog.html"><button class="card-button">MEET ME</button></a>
+                    <a href="dog.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../Img/Img/Gemini_Generated_Image_79f0bf79f0bf79f0.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">CAT</h3>
-                    <a href="cat.html"><button class="card-button">MEET ME</button></a>
+                    <a href="cat.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../Img/Img/Gemini_Generated_Image_kr9hzakr9hzakr9h.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">PARROT</h3>
-                    <a href="Parrot.html"><button class="card-button">MEET ME</button></a>
+                    <a href="Parrot.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../Img/Img/Gemini_Generated_Image_bo2yxlbo2yxlbo2y.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">RABBIT</h3>
-                    <a href="Rabbit.html"><button class="card-button">MEET ME</button></a>
+                    <a href="Rabbit.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../Img/Img/Gemini_Generated_Image_9ov8co9ov8co9ov8.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">TURTLE</h3>
-                    <a href="Turtle.html"><button class="card-button">MEET ME</button></a>
+                    <a href="Turtle.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
             <div class="card">
                 <img src="../Img/Img/Gemini_Generated_Image_q35lfq35lfq35lfq.jpeg" alt="Card Image" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">HAMSTER</h3>
-                    <a href="Hamster.html"><button class="card-button">MEET ME</button></a>
+                    <a href="Hamster.php"><button class="card-button">MEET ME</button></a>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
         function logOut() {
             localStorage.setItem('isSignedIn', 'false');
             
-            window.location.href = 'index.html';
+            window.location.href = 'index.php';
         }
     </script>
 </body>

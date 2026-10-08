@@ -1,0 +1,45 @@
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #333333;
+    --bg-secondary: #f4f4f4;
+}
+
+body.dark {
+    --bg-primary: #1a1a1a;
+    --text-primary: #f5f5f5;
+    --bg-secondary: #2d2d2d;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+body.dark .nav-bar,
+body.dark .main,
+body.dark .contact-email,
+body.dark .footer1 {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+body.dark h1, body.dark h2, body.dark h3, body.dark p, body.dark span {
+    color: var(--text-primary);
+}
+
+body.dark .card-front, body.dark .card-back {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark-toggle {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 15px;
+    color: inherit;
+}
+body.dark .dark-toggle {
+    border-color: #666;
+    color: #fff;
+}

@@ -7,6 +7,8 @@
     <title>FurFaimily</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
     <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
 </head>
 <body>
     <nav class="nav-bar">
@@ -17,6 +19,7 @@
 
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="#">Home</a>
                 <a href="#" onclick="showAbout()">About</a>
                 <a href="#" onclick="showContact()">Contact</a>

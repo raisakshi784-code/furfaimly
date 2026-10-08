@@ -13,6 +13,8 @@ $cats = $stmt->fetchAll();
     <title>FurFaimily - Cat Selection</title>
     <link rel="icon" href="../Img/Img/Gemini_Generated_Image_2vj2pb2vj2pb2vj2 (1).jpeg" type="image/x-icon">
     <link rel="stylesheet" href="../CSS/Cat.css">
+    <link rel="stylesheet" href="../CSS/dark-mode.css">
+    <script src="js/dark-mode.js" defer></script>
 </head>
 <body>
     <nav class="nav-bar">
@@ -22,6 +24,7 @@ $cats = $stmt->fetchAll();
         </div>
         <div class="nav-right">
             <div class="nav-links">
+                <button id="dark-mode-toggle" class="dark-toggle">🌙 Dark Mode</button>
                 <a href="index.php">Home</a>
                 <select id="user-type" onchange="navigateToPage(this.value)">
                     <option value="" disabled selected>Select Role</option>

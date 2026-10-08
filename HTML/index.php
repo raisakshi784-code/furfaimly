@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,14 @@
                 <a href="#">Home</a>
                 <a href="#" onclick="showAbout()">About</a>
                 <a href="#" onclick="showContact()">Contact</a>
-                <button id="btn-signin-signup" onclick="handleSignIn()">SIGN IN / SIGN UP</button>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <button id="btn-signin-signup" style="display:flex; align-items:center; gap:8px;" onclick="logOut()">
+                        <img src="<?php echo htmlspecialchars($_SESSION['user']['avatar']); ?>" alt="avatar" style="width:24px; height:24px; border-radius:50%;">
+                        LOG OUT
+                    </button>
+                <?php else: ?>
+                    <button id="btn-signin-signup" onclick="handleSignIn()">SIGN IN / SIGN UP</button>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
@@ -80,19 +88,12 @@
         </div>
     </div>
     <script>
-        let isSignedIn = false;
+        let isSignedIn = <?php echo isset($_SESSION['user']) ? 'true' : 'false'; ?>;
 
         function showContact() {
             const contactSection = document.querySelector('.contact-email');
             contactSection.scrollIntoView({ behavior: 'smooth' });
         }
-
-        window.onload = function() {
-            if (localStorage.getItem('isSignedIn') === 'true') {
-                isSignedIn = true;
-                updateUIAfterSignIn();
-            }
-        };
 
         function handleGetStarted() {
             if (!isSignedIn) {
@@ -103,23 +104,12 @@
         }
 
         function handleSignIn() {
-            if (!isSignedIn) {
-                window.location.href = 'sign.php'; 
-                localStorage.setItem('isSignedIn', 'true'); 
-            } else {
-                logOut();
-            }
+            window.location.href = 'sign.php'; 
         }
         
         function logOut() {
-            isSignedIn = false;
-            localStorage.setItem('isSignedIn', 'false');
-            document.getElementById('btn-signin-signup').innerText = 'SIGN IN / SIGN UP';
-            alert('You have logged out.');
-        }
-
-        function updateUIAfterSignIn() {
-            document.getElementById('btn-signin-signup').innerText = 'LOG OUT';
+            // Clear session via PHP
+            window.location.href = 'logout.php';
         }
 
         function showAbout() {

@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once 'db.php';
+$stmt = $pdo->prepare("SELECT * FROM pets WHERE category='Cat'");
+$stmt->execute();
+$cats = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,89 +39,28 @@
 
     <div class="container">
         <div class="card-container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/persian.jpeg" alt="Persian" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">PERSIAN</button>
+            <?php if (count($cats) > 0): ?>
+                <?php foreach ($cats as $cat): ?>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <!-- In a real scenario, map image from DB -->
+                            <img src="../Img/Img/persian.jpeg" alt="<?php echo htmlspecialchars($cat['name']); ?>" class="card-img">
+                            <div class="card-content">
+                                <button class="card-button"><?php echo htmlspecialchars(strtoupper($cat['name'])); ?></button>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <p><?php echo htmlspecialchars($cat['name']); ?>: <?php echo htmlspecialchars($cat['trait_tag'] ?? 'A wonderful companion!'); ?></p>
+                            <!-- Dynamic QR Code (Task 5 step 1 integrated here for efficiency) -->
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://localhost/FURFAIMILY/HTML/adopt.php?id=<?php echo $cat['id']; ?>" alt="QR Code" style="margin-top: 10px; border-radius: 4px;">
                         </div>
                     </div>
-                    <div class="card-back">
-                        <p>PERSIAN: Elegant, calm, and affectionate cats!</p>
-                    </div>
                 </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/indian.jpeg" alt="Indian Billi" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">INDIAN BILLI</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>INDIAN BILLI: Independent, playful, and easy to care for!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/Rusty.jpeg" alt="Rusty Spotted Cat" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">RUSTY SPOTTED CAT</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>RUSTY SPOTTED CAT: Tiny, agile, and full of curiosity!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/bombay.jpeg" alt="Bombay" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">BOMBAY</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>BOMBAY: Sleek, friendly, and affectionate cats!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/birman.jpeg" alt="Birman" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">BIRMAN</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>BIRMAN: Gentle, loving, and beautiful cats!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="../Img/Img/chartreux.jpeg" alt="Chartreux" class="card-img">
-                        <div class="card-content">
-                            <button class="card-button">CHARTREUX</button>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <p>CHARTREUX: Quiet, sweet, and excellent companions!</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; width:100%; font-size:18px;">No cats available right now.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -128,9 +74,7 @@
         }
 
         function logOut() {
-            localStorage.setItem('isSignedIn', 'false'); 
-            alert('You have been logged out.');
-            window.location.href = 'index.php'; 
+            window.location.href = 'logout.php'; 
         }
 
         function navigateToPage(page) {
